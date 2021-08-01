@@ -34,22 +34,23 @@ function addTimes (startTime, endTime) {
   
     return ('0' + hours).slice(-2) + ':' + ('0' + minutes).slice(-2) + ':' + ('0' + seconds).slice(-2)
 }
+window.addEventListener('load', function () {
+    var timer = "";
+    var stats = document.querySelectorAll('.style-scope .ytd-playlist-sidebar-primary-info-renderer');
+    var writtenInfo = stats[7];
+    var vidTimers = document.querySelectorAll('.style-scope .ytd-thumbnail-overlay-time-status-renderer');
 
-var timer = "";
-var customStyleElement = document.createElement('style');
-var stats = document.querySelectorAll('.style-scope .ytd-playlist-sidebar-primary-info-renderer');
-var writtenInfo = stats[7];
-var vidTimers = document.querySelectorAll('.style-scope .ytd-thumbnail-overlay-time-status-renderer');
-
-for (let i = 0; i < vidTimers.length; i++) {
-    const times = vidTimers[i].innerHTML.split(':');
-    if(times.length == 3){
-        timer = addTimes(timer,vidTimers[i].innerHTML)
+    for (let i = 0; i < vidTimers.length; i++) {
+        const times = vidTimers[i].innerHTML.split(':');
+        if(times.length == 3){
+            timer = addTimes(timer,vidTimers[i].innerHTML)
+        }
+        else{
+            timer = addTimes(timer,"0:"+vidTimers[i].innerHTML)
+        }
     }
-    else{
-        timer = addTimes(timer,"0:"+vidTimers[i].innerHTML)
-    }
-}
-setTimeout('', 1000);
+    setTimeout('', 1000);
 
-writtenInfo.innerHTML += " ● Total time: " + timer;
+    writtenInfo.innerHTML += " ● Total time: " + timer;
+  })
+
