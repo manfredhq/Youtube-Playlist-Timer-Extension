@@ -1,0 +1,20 @@
+{
+
+  "manifest_version": 2,
+  "name": "playlist Timer",
+  "version": "1.0",
+
+  "description": "Add the amount of time needed to watch all vids from a playlsit (in x1)!",
+
+  "icons": {
+    "96": "my-image.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/playlist?list=*"],
+      "js": ["index.js"]
+    }
+  ]
+
+}
