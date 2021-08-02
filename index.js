@@ -43,7 +43,7 @@ window.addEventListener('load', function () {
     var stats = document.querySelectorAll('.style-scope .ytd-playlist-sidebar-primary-info-renderer');
     var writtenInfo = stats[7];
     var vidTimers = document.querySelectorAll('.style-scope .ytd-thumbnail-overlay-time-status-renderer');
-
+    console.log("got " + vidTimers.length/2 + " number of vid");
     for (let i = 0; i < vidTimers.length; i++) {
         const times = vidTimers[i].innerHTML.split(':');
         if(times.length == 3){
