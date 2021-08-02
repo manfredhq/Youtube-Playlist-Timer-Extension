@@ -1,4 +1,5 @@
 function addTimes (startTime, endTime) {
+  try {
     var times = [ 0, 0, 0 ]
     var max = times.length
   
@@ -31,8 +32,11 @@ function addTimes (startTime, endTime) {
       hours += h
       minutes -= 60 * h
     }
-  
+
     return ('0' + hours).slice(-2) + ':' + ('0' + minutes).slice(-2) + ':' + ('0' + seconds).slice(-2)
+  } catch (error) {
+    console.log("error: " + error)
+  }
 }
 window.addEventListener('load', function () {
     var timer = "";
@@ -50,7 +54,7 @@ window.addEventListener('load', function () {
         }
     }
     setTimeout('', 1000);
-
+    console.log("calcul has been fine and the result is: " + timer)
     writtenInfo.innerHTML += " ● Total time: " + timer;
-  })
+})
 
